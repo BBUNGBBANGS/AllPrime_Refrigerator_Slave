@@ -28,10 +28,17 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_hal.h"
-
+#include "vardef.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+extern ADC_HandleTypeDef hadc;
 
+extern I2C_HandleTypeDef hi2c2;
+
+extern SPI_HandleTypeDef hspi1;
+
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

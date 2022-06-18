@@ -39,6 +39,8 @@ C_SOURCES =  \
 Core/Src/main.c \
 Core/Src/stm32f0xx_it.c \
 Core/Src/stm32f0xx_hal_msp.c \
+Core/Src/os.c \
+Core/Src/keypad.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc_ex.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c \
@@ -58,30 +60,26 @@ Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c \
-Core/Src/system_stm32f0xx.c  
+Core/Src/system_stm32f0xx.c \
+startup_stm32f072xb.c  
 
 # ASM sources
-ASM_SOURCES =  \
-startup_stm32f072xb.s
+ASM_SOURCES =  
 
 
 #######################################
 # binaries
 #######################################
+GCC_PATH = /Users/seojisu/Library/Arm-GCC-xPack/bin
 PREFIX = arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
-ifdef GCC_PATH
+
 CC = $(GCC_PATH)/$(PREFIX)gcc
 AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
-else
-CC = $(PREFIX)gcc
-AS = $(PREFIX)gcc -x assembler-with-cpp
-CP = $(PREFIX)objcopy
-SZ = $(PREFIX)size
-endif
+
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
  
@@ -186,6 +184,12 @@ $(BUILD_DIR):
 clean:
 	-rm -fR $(BUILD_DIR)
   
+#######################################
+# OpenOCD
+#######################################
+flash: all
+	/Users/seojisu/Library/xPacks/@xpack-dev-tools/openocd/0.11.0-4.1/.content/bin/openocd -f interface/stlink.cfg -f target/stm32f0x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+
 #######################################
 # dependencies
 #######################################
