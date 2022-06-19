@@ -1,7 +1,28 @@
-#ifndef _SWITCH_H
-#define _SWITCH_H
+#ifndef _KEYPAD_H
+#define _KEYPAD_H
 
 #include "main.h"
+
+#define KEYPAD_IN_CH0_GROUP         (GPIOC)
+#define KEYPAD_IN_CH1_GROUP         (GPIOC)
+#define KEYPAD_IN_CH2_GROUP         (GPIOC)
+#define KEYPAD_IN_CH3_GROUP         (GPIOC)
+#define KEYPAD_OUT_CH0_GROUP        (GPIOC)
+#define KEYPAD_OUT_CH1_GROUP        (GPIOC)
+#define KEYPAD_OUT_CH2_GROUP        (GPIOC)
+#define KEYPAD_OUT_CH3_GROUP        (GPIOC)
+
+#define KEYPAD_IN_CH0_PIN           (GPIO_PIN_0)     
+#define KEYPAD_IN_CH1_PIN           (GPIO_PIN_1)    
+#define KEYPAD_IN_CH2_PIN           (GPIO_PIN_2)    
+#define KEYPAD_IN_CH3_PIN           (GPIO_PIN_3)    
+#define KEYPAD_OUT_CH0_PIN          (GPIO_PIN_4)     
+#define KEYPAD_OUT_CH1_PIN          (GPIO_PIN_5)    
+#define KEYPAD_OUT_CH2_PIN          (GPIO_PIN_6)    
+#define KEYPAD_OUT_CH3_PIN          (GPIO_PIN_7)      
+
+#define KEYPAD_ON           (GPIO_PIN_SET)
+#define KEYPAD_OFF          (GPIO_PIN_RESET)
 
 #define KEYPAD_NUM_DEFAULT (' ')
 #define KEYPAD_NUM_1	('*')//('D')

@@ -22,11 +22,12 @@ static void Os_1ms_Task(void)
 static void Os_10ms_Task(void)
 {
 	Key_Scan();
+	Switch_Scan();
 }
 
 static void Os_100ms_Task(void)
 {
-
+	LED_Output();
 }
 
 static void Os_Background_Task(void)

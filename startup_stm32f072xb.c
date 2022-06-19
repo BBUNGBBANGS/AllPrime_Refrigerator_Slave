@@ -75,10 +75,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 __weak void NMI_Handler(void)                           {Default_Handler();}
-__weak void HardFault_Handler(void)                     {Default_Handler();}
+__weak void HardFault_Handler(void)                     {Reset_Handler();}
 __weak void SVC_Handler(void)                           {Default_Handler();}
 __weak void PendSV_Handler(void)                        {Default_Handler();}
-__weak void SysTick_Handler(void)                       {Default_Handler();}
+__weak void SysTick_Handler(void)                       {SystemTick_Handler();}
 __weak void WWDG_IRQHandler(void)                       {Default_Handler();}                
 __weak void PVD_VDDIO2_IRQHandler(void)                 {Default_Handler();}
 __weak void RTC_IRQHandler(void)                        {Default_Handler();}
@@ -94,8 +94,8 @@ __weak void DMA1_Channel4_5_6_7_IRQHandler(void)        {Default_Handler();}
 __weak void ADC1_COMP_IRQHandler(void)                  {Default_Handler();}
 __weak void TIM1_BRK_UP_TRG_COM_IRQHandler(void)        {Default_Handler();}
 __weak void TIM1_CC_IRQHandler(void)                    {Default_Handler();}
-__weak void TIM2_IRQHandler(void)                       {Default_Handler();}
-__weak void TIM3_IRQHandler(void)                       {Default_Handler();}
+__weak void TIM2_IRQHandler(void)                       {TIM2_Handler();}
+__weak void TIM3_IRQHandler(void)                       {TIM3_Handler();}
 __weak void TIM6_DAC_IRQHandler(void)                   {Default_Handler();}
 __weak void TIM7_IRQHandler(void)                       {Default_Handler();}
 __weak void TIM14_IRQHandler(void)                      {Default_Handler();}

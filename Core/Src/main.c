@@ -103,7 +103,9 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_Base_Start_IT(&htim3);
+  Os_Init_Task();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -111,7 +113,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    Os_Handler();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
