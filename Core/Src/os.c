@@ -1,4 +1,7 @@
 #include "os.h"
+#include "etc.h"
+#include "keypad.h"
+#include "cd4514.h"
 
 Os_Var_t Os_Var;
 
@@ -28,6 +31,7 @@ static void Os_10ms_Task(void)
 static void Os_100ms_Task(void)
 {
 	LED_Output();
+	CD4514_Output();
 }
 
 static void Os_Background_Task(void)
