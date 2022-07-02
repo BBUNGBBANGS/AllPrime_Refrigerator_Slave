@@ -8,12 +8,14 @@
 #define CD4514_CH2_GROUP            (GPIOB)
 #define CD4514_CH3_GROUP            (GPIOA)
 #define CD4514_INH_GROUP            (GPIOA)
+#define CD4514_STB_GROUP            (GPIOA)
 
 #define CD4514_CH0_PIN              (GPIO_PIN_13)
 #define CD4514_CH1_PIN              (GPIO_PIN_14)
 #define CD4514_CH2_PIN              (GPIO_PIN_15)
 #define CD4514_CH3_PIN              (GPIO_PIN_2)
 #define CD4514_INH_PIN              (GPIO_PIN_3)
+#define CD4514_STB_PIN              (GPIO_PIN_5)
 
 #define CD4514_OUTPUT_CH0           (0)
 #define CD4514_OUTPUT_CH1           (1)

@@ -1,29 +1,26 @@
 #include "stdint.h"
-#include "system_stm32f0xx.h"
-#include "stm32f0xx.h"
-#include "stm32f0xx_hal_def.h"
 #include "main.h"
 #include "os.h"
 
-extern uint32_t _sidata;
-extern uint32_t _sdata;
-extern uint32_t _edata;
-extern uint32_t _sbss;
-extern uint32_t _ebss;
-extern uint32_t _estack;
+extern uint32 _sidata;
+extern uint32 _sdata;
+extern uint32 _edata;
+extern uint32 _sbss;
+extern uint32 _ebss;
+extern uint32 _estack;
 
 extern void __libc_init_array();
 
 void Reset_Handler()
 {
-    uint32_t *dataInit = &_sidata;
-    uint32_t *data = &_sdata;
+    uint32 *dataInit = &_sidata;
+    uint32 *data = &_sdata;
     while(data < &_edata)
     {
         *data++ = *dataInit++;
     }
 
-    uint32_t *bss = &_sbss;
+    uint32 *bss = &_sbss;
     while(bss < &_ebss)
     {
         *bss++ = 0;

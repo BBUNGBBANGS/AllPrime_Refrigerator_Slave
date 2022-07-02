@@ -1,0 +1,16 @@
+#ifndef _RELAY_74LS595_H
+#define _RELAY_74LS595_H
+
+#include "main.h"
+
+#define RELAY_74LS595_SRCLK_GROUP   (GPIOA)
+#define RELAY_74LS595_RCLK_GROUP    (GPIOA)
+#define RELAY_74LS595_SER_GROUP     (GPIOA)
+
+#define RELAY_74LS595_SRCLK_PIN   (GPIO_PIN_10)
+#define RELAY_74LS595_RCLK_PIN   (GPIO_PIN_11)
+#define RELAY_74LS595_SER_PIN   (GPIO_PIN_12)
+
+extern void Relay_74LS595_Output(void);
+
+#endif

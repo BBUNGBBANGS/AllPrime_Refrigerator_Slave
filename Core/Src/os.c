@@ -2,6 +2,7 @@
 #include "etc.h"
 #include "keypad.h"
 #include "cd4514.h"
+#include "relay_74ls595.h"
 
 Os_Var_t Os_Var;
 
@@ -19,7 +20,7 @@ void Os_Init_Task(void)
 }
 static void Os_1ms_Task(void)
 {
-
+	Relay_74LS595_Output();
 }
 
 static void Os_10ms_Task(void)
