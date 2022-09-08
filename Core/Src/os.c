@@ -3,6 +3,7 @@
 #include "keypad.h"
 #include "cd4514.h"
 #include "relay_74ls595.h"
+#include "i2c.h"
 
 Os_Var_t Os_Var;
 
@@ -16,11 +17,12 @@ static void Os_Background_Task(void);
 
 void Os_Init_Task(void)
 {
-
+	OLED_Reg_Init();
 }
 static void Os_1ms_Task(void)
 {
 	Relay_74LS595_Output();
+	CD4514_Output();
 }
 
 static void Os_10ms_Task(void)
@@ -32,7 +34,8 @@ static void Os_10ms_Task(void)
 static void Os_100ms_Task(void)
 {
 	LED_Output();
-	CD4514_Output();
+	I2C_FindAddress();
+	OLED_Print();
 }
 
 static void Os_Background_Task(void)
